@@ -22,6 +22,7 @@
     <ClInclude Include="Code\Game.h" />
     <ClInclude Include="Code\ResourceMgr.h" />
     <ClInclude Include="Code\Shader.h" />
+    <ClInclude Include="Code\SpriteRenderer.h" />
     <ClInclude Include="Code\texture.h" />
   </ItemGroup>
   <ItemGroup>
@@ -29,7 +30,12 @@
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\ResourceMgr.cpp" />
     <ClCompile Include="Code\Shader.cpp" />
+    <ClCompile Include="Code\SpriteRenderer.cpp" />
     <ClCompile Include="Code\texture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assert\Shader\2DSprite.fs" />
+    <None Include="Assert\Shader\2DSprite.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

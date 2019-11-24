@@ -7,6 +7,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class Shader
 {
@@ -37,6 +39,12 @@ public:
 	void SetFloat(const std::string& name, float v1, float v2, float v3) const;
 
 	void SetFloat(const std::string& name, float v1, float v2, float v3, float v4) const;
+
+	void SetVector3f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z) const;
+
+	void SetVector3f(const GLchar* name, const glm::vec3& value) const;
+
+	void SetMatrix4(const GLchar* name, const glm::mat4& matrix) const;
 
 	static bool _CompileShader(UINT nShaderID, const std::string& szCode);
 

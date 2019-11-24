@@ -16,6 +16,9 @@
     <Filter Include="源文件\Code">
       <UniqueIdentifier>{4513e098-8ec1-4073-9021-720e1ddd6bc1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Shader">
+      <UniqueIdentifier>{2bf0a66d-95ac-42e2-b7eb-ee6b71ce964f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game.h">
@@ -28,6 +31,9 @@
       <Filter>源文件\Code</Filter>
     </ClInclude>
     <ClInclude Include="Code\Shader.h">
+      <Filter>源文件\Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\SpriteRenderer.h">
       <Filter>源文件\Code</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,5 +53,16 @@
     <ClCompile Include="Code\ResourceMgr.cpp">
       <Filter>源文件\Code</Filter>
     </ClCompile>
+    <ClCompile Include="Code\SpriteRenderer.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assert\Shader\2DSprite.fs">
+      <Filter>源文件\Shader</Filter>
+    </None>
+    <None Include="Assert\Shader\2DSprite.vs">
+      <Filter>源文件\Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

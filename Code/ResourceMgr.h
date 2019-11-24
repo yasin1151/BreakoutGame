@@ -26,11 +26,11 @@ public:
 	static std::map<std::string, Texture2D> TextureMap;
 
 	static Shader LoadShader(const char* vsShaderFile, const char* fShaderFile, const char* gShaderFile, std::string name);
-	static Shader GetShader(std::string name);
+	static Shader& GetShader(std::string name);
 
 
 	static Texture2D LoadTexture(const char* file, GLboolean alpha, std::string name);
-	static Texture2D GetTexture(std::string name);
+	static Texture2D& GetTexture(std::string name);
 
 	static void Clear();
 

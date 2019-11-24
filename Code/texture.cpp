@@ -36,6 +36,7 @@ void Texture2D::Generate(GLuint width, GLuint height, unsigned char* data)
 
 	// ½â°ó
 	glBindTexture(GL_TEXTURE_2D, 0);
+
 }
 
 void Texture2D::Bind() const

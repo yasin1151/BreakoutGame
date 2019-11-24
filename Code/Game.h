@@ -4,6 +4,9 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "ResourceMgr.h"
+#include "SpriteRenderer.h"
+
 enum GameState
 {
 	GAME_ACTIVE,
@@ -21,7 +24,7 @@ public:
 	GLboolean Keys[KEY_LEN];
 	GLuint Width, Height;
 
-
+	SpriteRenderer* render;
 
 	Game(GLuint width, GLuint height);
 	~Game();
