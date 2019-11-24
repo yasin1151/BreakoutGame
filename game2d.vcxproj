@@ -20,12 +20,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game.h" />
+    <ClInclude Include="Code\ResourceMgr.h" />
     <ClInclude Include="Code\Shader.h" />
+    <ClInclude Include="Code\texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Game.cpp" />
     <ClCompile Include="Code\main.cpp" />
+    <ClCompile Include="Code\ResourceMgr.cpp" />
     <ClCompile Include="Code\Shader.cpp" />
+    <ClCompile Include="Code\texture.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -89,9 +93,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;STB_IMAGE.lib;GLAD.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

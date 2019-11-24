@@ -1,15 +1,12 @@
 #ifndef __Shader_H__
 #define __Shader_H__
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include <string>
 #include <iostream>
 #include <fstream>
 #include <sstream>
-
-#include <GL/glew.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
 
 class Shader
 {

@@ -21,9 +21,30 @@
     <ClInclude Include="Code\Game.h">
       <Filter>源文件\Code</Filter>
     </ClInclude>
+    <ClInclude Include="Code\texture.h">
+      <Filter>源文件\Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\ResourceMgr.h">
+      <Filter>源文件\Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Shader.h">
+      <Filter>源文件\Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Shader.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Game.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\texture.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\ResourceMgr.cpp">
       <Filter>源文件\Code</Filter>
     </ClCompile>
   </ItemGroup>
