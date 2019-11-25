@@ -16,3 +16,18 @@ void GameObject::Draw(SpriteRenderer& renderer)
 {
 	renderer.DrawSprite(this->Sprite, this->Position, this->Size, this->Rotation, this->Color);
 }
+
+void GameObject::SetPos(const glm::vec2& vPos)
+{
+	this->Position = vPos;
+}
+
+void GameObject::SetPos(float x, float y)
+{
+	this->Position = glm::vec2(x, y);
+}
+
+glm::vec2 GameObject::GetPos() const
+{
+	return this->Position;
+}

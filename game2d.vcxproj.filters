@@ -36,10 +36,10 @@
     <ClInclude Include="Code\SpriteRenderer.h">
       <Filter>源文件\Code</Filter>
     </ClInclude>
-    <ClInclude Include="Code\MySprite.h">
+    <ClInclude Include="Code\GameObject.h">
       <Filter>源文件\Code</Filter>
     </ClInclude>
-    <ClInclude Include="Code\GameObject.h">
+    <ClInclude Include="Code\GameLevel.h">
       <Filter>源文件\Code</Filter>
     </ClInclude>
   </ItemGroup>
@@ -63,6 +63,9 @@
       <Filter>源文件\Code</Filter>
     </ClCompile>
     <ClCompile Include="Code\GameObject.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GameLevel.cpp">
       <Filter>源文件\Code</Filter>
     </ClCompile>
   </ItemGroup>

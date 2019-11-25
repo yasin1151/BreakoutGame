@@ -27,8 +27,33 @@ void Game::Init()
 
 }
 
-void Game::ProcessInput(GLfloat dt)
+void Game::ProcessInput(GLFWwindow* pWindow, GLfloat dt)
 {
+	glm::vec2 pos = gameobj.GetPos();
+	glm::vec2 offset = glm::vec2(0.0f);
+
+	if (glfwGetKey(pWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
+		glfwSetWindowShouldClose(pWindow, true);
+	}
+	else if (glfwGetKey(pWindow, GLFW_KEY_LEFT) == GLFW_PRESS)
+	{
+		offset = glm::vec2(-1.0f, 0.0f);
+	}
+	else if (glfwGetKey(pWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
+	{
+		offset = glm::vec2(1.0f, 0.0f);
+	}
+	else if (glfwGetKey(pWindow, GLFW_KEY_UP) == GLFW_PRESS)
+	{
+		offset = glm::vec2(0.0f, -1.0f);
+	}
+	else if (glfwGetKey(pWindow, GLFW_KEY_DOWN) == GLFW_PRESS)
+	{
+		offset = glm::vec2(0.0f, 1.0f);
+	}
+	gameobj.SetPos(pos.x + offset.x, pos.y + offset.y);
+
 }
 
 void Game::Update(GLfloat dt)

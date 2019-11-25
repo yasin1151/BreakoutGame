@@ -33,7 +33,7 @@ public:
 
 	void Init();
 
-	void ProcessInput(GLfloat dt);
+	void ProcessInput(GLFWwindow* pWindow, GLfloat dt);
 	void Update(GLfloat dt);
 	void Render();
 

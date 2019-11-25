@@ -52,7 +52,7 @@ int main()
 	while(!glfwWindowShouldClose(pWindow))
 	{
 		// oGame.ProcessInput(0.016);
-		ProcessInput(pWindow);
+		oGame.ProcessInput(pWindow, 0.016f);
 
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
