@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Game.h" />
+    <ClInclude Include="Code\GameObject.h" />
+    <ClInclude Include="Code\MySprite.h" />
     <ClInclude Include="Code\ResourceMgr.h" />
     <ClInclude Include="Code\Shader.h" />
     <ClInclude Include="Code\SpriteRenderer.h" />
@@ -27,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Game.cpp" />
+    <ClCompile Include="Code\GameObject.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\ResourceMgr.cpp" />
     <ClCompile Include="Code\Shader.cpp" />

@@ -6,6 +6,7 @@
 
 #include "ResourceMgr.h"
 #include "SpriteRenderer.h"
+#include "GameObject.h"
 
 enum GameState
 {
@@ -25,6 +26,7 @@ public:
 	GLuint Width, Height;
 
 	SpriteRenderer* render;
+	GameObject gameobj;
 
 	Game(GLuint width, GLuint height);
 	~Game();

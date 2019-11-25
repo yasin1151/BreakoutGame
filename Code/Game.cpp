@@ -20,10 +20,10 @@ void Game::Init()
 	oShader.UseShader();
 	oShader.SetInt("image", 0);
 	oShader.SetMatrix4("projection", projection);
-
+	auto oTexture = ResourceMgr::LoadTexture("Assert/Res/textures/awesomeface.png", GL_TRUE, "face");
 	render = new SpriteRenderer(oShader);
-
-	ResourceMgr::LoadTexture("Assert/Res/textures/awesomeface.png", GL_TRUE, "face");
+	gameobj = GameObject(glm::vec2(200, 200), glm::vec2(300, 400), oTexture, glm::vec3(0.0f, 1.0f, 0.0f), glm::vec2(1.0f, 1.0f));
+	
 
 }
 
@@ -37,6 +37,5 @@ void Game::Update(GLfloat dt)
 
 void Game::Render()
 {
-	render->DrawSprite(
-		ResourceMgr::GetTexture("face"), glm::vec2(200, 200), glm::vec2(300, 400), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+	gameobj.Draw(*render);
 }
