@@ -8,6 +8,9 @@ build:
 deploy:
 - provider: GitHub
   release: BreakoutGame.exe
+  on:
+    branch: master
+    platform: x86
   auth_token:
     secure: aOjxIN6QbqcgO16enkFEundxitsOEHCfXdmcM7bmEf8jCRIMy6xJBmTPHfWI0mIi
   draft: true
