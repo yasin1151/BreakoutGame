@@ -13,3 +13,4 @@ deploy:
     platform: x86
   auth_token:
     secure: aOjxIN6QbqcgO16enkFEundxitsOEHCfXdmcM7bmEf8jCRIMy6xJBmTPHfWI0mIi
+  draft: false
