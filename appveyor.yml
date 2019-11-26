@@ -1,5 +1,7 @@
 version: 1.0.{build}
 image: Previous Visual Studio 2019
+configuration: Debug
+platform: x86
 build:
   project: game2d.sln
   verbosity: minimal
