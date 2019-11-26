@@ -7,7 +7,6 @@ build:
   verbosity: minimal
 deploy:
 - provider: GitHub
-  tag: v1.0
   release: BreakoutGame.exe
   auth_token:
     secure: aOjxIN6QbqcgO16enkFEundxitsOEHCfXdmcM7bmEf8jCRIMy6xJBmTPHfWI0mIi
