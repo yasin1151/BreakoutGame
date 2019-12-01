@@ -74,6 +74,9 @@
     <ClCompile Include="Code\GameLevel.cpp">
       <Filter>源文件\Code</Filter>
     </ClCompile>
+    <ClCompile Include="Code\BallObject.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assert\Shader\2DSprite.fs">

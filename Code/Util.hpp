@@ -13,5 +13,14 @@ inline auto CheckFileExists(const std::string& szFileName) -> bool
 	return std::filesystem::exists(szFileName.c_str());
 }
 
+template<typename C>
+void SafeDelete(C* ptr)
+{	
+	if (ptr)
+	{
+		delete ptr;
+	}
+}
+
 
 #endif

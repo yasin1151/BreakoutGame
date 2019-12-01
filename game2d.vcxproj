@@ -30,6 +30,7 @@
     <ClInclude Include="Code\Util.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\BallObject.cpp" />
     <ClCompile Include="Code\Game.cpp" />
     <ClCompile Include="Code\GameLevel.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
