@@ -61,6 +61,13 @@ Shader ResourceMgr::LoadShaderFromFile(const char* vShaderFile, const char* fSha
 
 Texture2D ResourceMgr::LoadTextureFromFile(const char* file, GLboolean alpha)
 {
+	if (!CheckFileExists(file))
+	{
+		char  szPath[1024];
+		sprintf_s(szPath, "Assert/Res/%s", file);
+		file = szPath;
+	}
+
 	// Create Texture object
 	Texture2D texture;
 	if (alpha)

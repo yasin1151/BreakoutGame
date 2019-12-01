@@ -49,10 +49,19 @@ int main()
 	Game oGame = Game(SCREEN_WIDTH, SCREEN_HEIGHT);
 	oGame.Init();
 
+	GLfloat deltaTime = 0.0f;
+	GLfloat lastFrame = 0.0f;
+
+	oGame.State = GAME_ACTIVE;
+
+
 	while(!glfwWindowShouldClose(pWindow))
 	{
-		// oGame.ProcessInput(0.016);
-		oGame.ProcessInput(pWindow, 0.016f);
+		GLfloat currentFrame = glfwGetTime();
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+
+		oGame.ProcessInput(pWindow, deltaTime);
 
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -61,6 +70,8 @@ int main()
 		glfwSwapBuffers(pWindow);
 		glfwPollEvents();
 	}
+
+	ResourceMgr::Clear();
 
 	glfwTerminate();
 	return 0;

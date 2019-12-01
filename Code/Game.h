@@ -3,10 +3,12 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <vector>
 
 #include "ResourceMgr.h"
 #include "SpriteRenderer.h"
 #include "GameObject.h"
+#include "GameLevel.h"
 
 enum GameState
 {
@@ -25,8 +27,9 @@ public:
 	GLboolean Keys[KEY_LEN];
 	GLuint Width, Height;
 
-	SpriteRenderer* render;
-	GameObject gameobj;
+
+	std::vector<GameLevel> Levels;
+	GLuint	level;
 
 	Game(GLuint width, GLuint height);
 	~Game();

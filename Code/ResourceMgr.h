@@ -4,10 +4,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-
-#include "texture.h"
-#include "Shader.h"
-
 #include <map>
 #include <string>
 #include <SOIL.h>
@@ -16,6 +12,9 @@
 #include <sstream>
 #include <fstream>
 
+#include "texture.h"
+#include "Shader.h"
+#include "Util.hpp"
 
 
 // 单例资源管理器

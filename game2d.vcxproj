@@ -26,6 +26,7 @@
     <ClInclude Include="Code\Shader.h" />
     <ClInclude Include="Code\SpriteRenderer.h" />
     <ClInclude Include="Code\texture.h" />
+    <ClInclude Include="Code\Util.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\Game.cpp" />
@@ -104,6 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\yasin\source\repos\game2d\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
