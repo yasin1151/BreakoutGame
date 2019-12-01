@@ -45,6 +45,9 @@
     <ClInclude Include="Code\Util.hpp">
       <Filter>源文件\Code</Filter>
     </ClInclude>
+    <ClInclude Include="Code\BallObject.h">
+      <Filter>源文件\Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">

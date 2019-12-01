@@ -12,11 +12,12 @@ const GLuint SCREEN_WIDTH = 800;
 const GLuint SCREEN_HEIGHT = 600;
 const char* TITLE_NAME = "2DGame";
 
+Game BreakoutGame = Game(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 // 全局回调函数
 void OnFrameBufferSizeChange(GLFWwindow* pWindow, int nWidth, int nHeight);
 void ProcessInput(GLFWwindow* pWindow);
-
+void OnKeyCallBack(GLFWwindow* pWindow, int key, int scancode, int action, int mode);
 
 int main()
 {
@@ -36,6 +37,7 @@ int main()
 
 	glfwMakeContextCurrent(pWindow);
 	glfwSetFramebufferSizeCallback(pWindow, OnFrameBufferSizeChange);
+	glfwSetKeyCallback(pWindow, OnKeyCallBack);
 
 	// 加载glad
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -46,13 +48,13 @@ int main()
 	}
 
 	cout << "Game Start !" << endl;
-	Game oGame = Game(SCREEN_WIDTH, SCREEN_HEIGHT);
-	oGame.Init();
+
+	BreakoutGame.Init();
 
 	GLfloat deltaTime = 0.0f;
 	GLfloat lastFrame = 0.0f;
 
-	oGame.State = GAME_ACTIVE;
+	BreakoutGame.State = GAME_ACTIVE;
 
 
 	while(!glfwWindowShouldClose(pWindow))
@@ -61,11 +63,11 @@ int main()
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
-		oGame.ProcessInput(pWindow, deltaTime);
+		BreakoutGame.ProcessInput(deltaTime);
 
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
-		oGame.Render();
+		BreakoutGame.Render();
 
 		glfwSwapBuffers(pWindow);
 		glfwPollEvents();
@@ -86,10 +88,24 @@ void OnFrameBufferSizeChange(GLFWwindow* pWindow, int nWidth, int nHeight)
 	}
 }
 
-void ProcessInput(GLFWwindow* pWindow)
+void OnKeyCallBack(GLFWwindow* pWindow, int key, int scancode, int action, int mode)
 {
-	if (glfwGetKey(pWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 	{
-		glfwSetWindowShouldClose(pWindow, true);
+		glfwSetWindowShouldClose(pWindow, GL_TRUE);
 	}
+
+	if (key >= 0 && key < 1024)
+	{
+		if (action == GLFW_PRESS)
+		{
+			BreakoutGame.Keys[key] = GL_TRUE;
+		}
+		else if (action == GLFW_RELEASE)
+		{
+			BreakoutGame.Keys[key] = GL_FALSE;
+			BreakoutGame.KeysProcessed[key] = GL_FALSE;
+		}
+	}
+
 }

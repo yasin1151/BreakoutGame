@@ -25,6 +25,7 @@ class Game
 public:
 	GameState State = GAME_ACTIVE;
 	GLboolean Keys[KEY_LEN];
+	GLboolean KeysProcessed[KEY_LEN];
 	GLuint Width, Height;
 
 
@@ -36,10 +37,11 @@ public:
 
 	void Init();
 
-	void ProcessInput(GLFWwindow* pWindow, GLfloat dt);
+	void ProcessInput(GLfloat dt);
 	void Update(GLfloat dt);
 	void Render();
 
+	bool KeyIsDown(GLuint nKey);
 };
 
 #endif

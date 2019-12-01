@@ -63,7 +63,7 @@ void Game::Init()
 	render = new SpriteRenderer(oShader);
 }
 
-void Game::ProcessInput(GLFWwindow* pWindow, GLfloat dt)
+void Game::ProcessInput(GLfloat dt)
 {
 	if (this->State != GAME_ACTIVE)
 	{
@@ -74,28 +74,24 @@ void Game::ProcessInput(GLFWwindow* pWindow, GLfloat dt)
 	glm::vec2 offset = glm::vec2(0.0f);
 	GLfloat velocity = PLAYER_VELOCITY * dt;
 
-	if (glfwGetKey(pWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-	{
-		glfwSetWindowShouldClose(pWindow, true);
-	}
-	else if (glfwGetKey(pWindow, GLFW_KEY_LEFT) == GLFW_PRESS)
+	if (KeyIsDown(GLFW_KEY_LEFT))
 	{
 		offset = glm::vec2(-1.0f, 0.0f);
 	}
-	else if (glfwGetKey(pWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
+	else if (KeyIsDown(GLFW_KEY_RIGHT))
 	{
 		offset = glm::vec2(1.0f, 0.0f);
 	}
-	else if (glfwGetKey(pWindow, GLFW_KEY_UP) == GLFW_PRESS)
+
+	else if (KeyIsDown(GLFW_KEY_UP))
 	{
 		offset = glm::vec2(0.0f, -1.0f);
 	}
-	else if (glfwGetKey(pWindow, GLFW_KEY_DOWN) == GLFW_PRESS)
+	else if (KeyIsDown(GLFW_KEY_DOWN))
 	{
 		offset = glm::vec2(0.0f, 1.0f);
 	}
 	Player->SetPos(pos.x + offset.x * velocity, pos.y + offset.y * velocity);
-
 }
 
 void Game::Update(GLfloat dt)
@@ -116,4 +112,13 @@ void Game::Render()
 		Player->Draw(*render);
 	}
 
+}
+
+bool Game::KeyIsDown(GLuint nKey)
+{
+	if (this->Keys[nKey] && !this->KeysProcessed[nKey])
+	{
+		return true;
+	}
+	return false;
 }
