@@ -96,6 +96,16 @@ void Shader::SetFloat(const std::string& name, float v1, float v2, float v3, flo
 	glUniform4f(glGetUniformLocation(m_ShaderProgramID, name.c_str()), v1, v2, v3, v4);
 }
 
+void Shader::SetVector2f(const GLchar* name, GLfloat x, GLfloat y) const
+{
+	glUniform2f(glGetUniformLocation(m_ShaderProgramID, name), x, y);
+}
+
+void Shader::SetVector2f(const GLchar* name, const glm::vec2& value) const
+{
+	glUniform2f(glGetUniformLocation(m_ShaderProgramID, name), value.x, value.y);
+}
+
 void Shader::SetVector3f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z) const
 {
 	glUniform3f(glGetUniformLocation(m_ShaderProgramID, name), x, y, z);
@@ -104,6 +114,16 @@ void Shader::SetVector3f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z) co
 void Shader::SetVector3f(const GLchar* name, const glm::vec3& value) const
 {
 	glUniform3f(glGetUniformLocation(m_ShaderProgramID, name), value.x, value.y, value.z);
+}
+
+void Shader::SetVector4f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const
+{
+	glUniform4f(glGetUniformLocation(m_ShaderProgramID, name), x, y, z, w);
+}
+
+void Shader::SetVector4f(const GLchar* name, const glm::vec4& value) const
+{
+	glUniform4f(glGetUniformLocation(m_ShaderProgramID, name), value.x, value.y, value.z, value.z);
 }
 
 void Shader::SetMatrix4(const GLchar* name, const glm::mat4& matrix) const

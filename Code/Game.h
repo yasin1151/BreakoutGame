@@ -11,6 +11,7 @@
 #include "GameObject.h"
 #include "GameLevel.h"
 #include "BallObject.h"
+#include "Particle.h"
 
 enum GameState
 {
@@ -51,6 +52,9 @@ public:
 	void Update(GLfloat dt);
 	void DoCollisions();
 	void Render();
+
+	void ResetLevel();
+	void ResetPlayer();
 
 
 	bool KeyIsDown(GLuint nKey);

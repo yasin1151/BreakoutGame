@@ -23,6 +23,7 @@
     <ClInclude Include="Code\Game.h" />
     <ClInclude Include="Code\GameLevel.h" />
     <ClInclude Include="Code\GameObject.h" />
+    <ClInclude Include="Code\Particle.h" />
     <ClInclude Include="Code\ResourceMgr.h" />
     <ClInclude Include="Code\Shader.h" />
     <ClInclude Include="Code\SpriteRenderer.h" />
@@ -35,6 +36,7 @@
     <ClCompile Include="Code\GameLevel.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
     <ClCompile Include="Code\main.cpp" />
+    <ClCompile Include="Code\Particle.cpp" />
     <ClCompile Include="Code\ResourceMgr.cpp" />
     <ClCompile Include="Code\Shader.cpp" />
     <ClCompile Include="Code\SpriteRenderer.cpp" />
@@ -43,6 +45,8 @@
   <ItemGroup>
     <None Include="Assert\Shader\2DSprite.fs" />
     <None Include="Assert\Shader\2DSprite.vs" />
+    <None Include="Assert\Shader\Patricle.fs" />
+    <None Include="Assert\Shader\Patricle.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

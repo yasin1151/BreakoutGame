@@ -40,9 +40,17 @@ public:
 
 	void SetFloat(const std::string& name, float v1, float v2, float v3, float v4) const;
 
+	void SetVector2f(const GLchar* name, GLfloat x, GLfloat y) const;
+
+	void SetVector2f(const GLchar* name, const glm::vec2& value) const;
+
 	void SetVector3f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z) const;
 
 	void SetVector3f(const GLchar* name, const glm::vec3& value) const;
+
+	void SetVector4f(const GLchar* name, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const;
+
+	void SetVector4f(const GLchar* name, const glm::vec4& value) const;
 
 	void SetMatrix4(const GLchar* name, const glm::mat4& matrix) const;
 

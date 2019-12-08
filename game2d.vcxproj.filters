@@ -48,6 +48,9 @@
     <ClInclude Include="Code\BallObject.h">
       <Filter>源文件\Code</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Particle.h">
+      <Filter>源文件\Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
@@ -77,12 +80,21 @@
     <ClCompile Include="Code\BallObject.cpp">
       <Filter>源文件\Code</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Particle.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assert\Shader\2DSprite.fs">
       <Filter>源文件\Shader</Filter>
     </None>
     <None Include="Assert\Shader\2DSprite.vs">
+      <Filter>源文件\Shader</Filter>
+    </None>
+    <None Include="Assert\Shader\Patricle.fs">
+      <Filter>源文件\Shader</Filter>
+    </None>
+    <None Include="Assert\Shader\Patricle.vs">
       <Filter>源文件\Shader</Filter>
     </None>
   </ItemGroup>

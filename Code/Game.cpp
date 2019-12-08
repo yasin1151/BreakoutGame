@@ -4,6 +4,7 @@ const glm::vec2 PLAYER_SIZE(100, 20);
 const GLfloat PLAYER_VELOCITY(500.0f);
 SpriteRenderer* render;
 GameObject* Player;
+MyParticleMgr* ParticleMgr;
 
 
 // 球
@@ -34,6 +35,7 @@ void Game::Init()
 	ResourceMgr::LoadTexture("textures/block.png", GL_FALSE, "block");
 	ResourceMgr::LoadTexture("textures/block_solid.png", GL_FALSE, "block_solid");
 	ResourceMgr::LoadTexture("textures/paddle.png", GL_TRUE, "paddle");
+	ResourceMgr::LoadTexture("textures/particle.png", GL_TRUE, "particle");
 
 	char szPath[1024];
 	// 加载关卡
@@ -67,6 +69,12 @@ void Game::Init()
 	oShader.SetInt("image", 0);
 	oShader.SetMatrix4("projection", projection);
 	render = new SpriteRenderer(oShader);
+
+	oShader = ResourceMgr::LoadShader("Assert/Shader/Particle.vs", "Assert/Shader/Particle.fs", nullptr, "particle");
+	oShader.UseShader();
+	oShader.SetInt("image", 0);
+	oShader.SetMatrix4("projection", projection);
+	ParticleMgr = new MyParticleMgr(ResourceMgr::GetShader("particle"), ResourceMgr::GetTexture("particle"), 500);
 }
 
 void Game::ProcessInput(GLfloat dt)
@@ -108,6 +116,14 @@ void Game::Update(GLfloat dt)
 	Ball->Move(dt, this->Width);
 
 	this->DoCollisions();
+
+	if (Ball->Position.y >= this->Height)
+	{
+		this->ResetLevel();
+		this->ResetPlayer();
+	}
+
+	ParticleMgr->Update(dt, *Ball, 2, glm::vec2(Ball->Radius / 2));
 }
 
 void Game::DoCollisions()
@@ -169,8 +185,8 @@ void Game::DoCollisions()
 		// 发生碰撞
 		// 检查碰到了挡板的哪个位置，并根据碰到哪个位置来改变速度
 		GLfloat centerBoard = Player->Position.x + Player->Size.x / 2;
-		GLfloat distance = (Ball->Position.x + Ball->Radius) - centerBoard;
-		GLfloat percentage = distance / (Player->Size.x / 2);
+		GLfloat dis = (Ball->Position.x + Ball->Radius) - centerBoard;
+		GLfloat percentage = dis / (Player->Size.x / 2);
 		// 依据结果移动
 		GLfloat strength = 2.0f;
 		glm::vec2 oldVelocity = Ball->Velocity;
@@ -195,8 +211,33 @@ void Game::Render()
 
 		Player->Draw(*render);
 
+		ParticleMgr->Draw();
+
 		Ball->Draw(*render);
 	}
+
+}
+
+void Game::ResetLevel()
+{
+	this->level = 1;
+}
+
+void Game::ResetPlayer()
+{
+	// 初始化玩家属性
+	glm::vec2 playerPos = glm::vec2(
+		this->Width / 2 - PLAYER_SIZE.x / 2,
+		this->Height - PLAYER_SIZE.y
+	);
+
+	Player->Position = playerPos;
+
+	glm::vec2 ballPos = playerPos + glm::vec2(PLAYER_SIZE.x / 2 - BALL_RADIUS, -BALL_RADIUS * 2);
+
+	Ball->Position = ballPos;
+	Ball->Velocity = INITIAL_BALL_VELOCITY;
+	Ball->Stuck = true;
 
 }
 
