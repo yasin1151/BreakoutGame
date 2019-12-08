@@ -24,6 +24,7 @@
     <ClInclude Include="Code\GameLevel.h" />
     <ClInclude Include="Code\GameObject.h" />
     <ClInclude Include="Code\Particle.h" />
+    <ClInclude Include="Code\PostProcessing.h" />
     <ClInclude Include="Code\ResourceMgr.h" />
     <ClInclude Include="Code\Shader.h" />
     <ClInclude Include="Code\SpriteRenderer.h" />
@@ -37,6 +38,7 @@
     <ClCompile Include="Code\GameObject.cpp" />
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\Particle.cpp" />
+    <ClCompile Include="Code\PostProcessing.cpp" />
     <ClCompile Include="Code\ResourceMgr.cpp" />
     <ClCompile Include="Code\Shader.cpp" />
     <ClCompile Include="Code\SpriteRenderer.cpp" />

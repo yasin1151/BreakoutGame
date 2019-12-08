@@ -2,9 +2,11 @@
 
 const glm::vec2 PLAYER_SIZE(100, 20);
 const GLfloat PLAYER_VELOCITY(500.0f);
+GLfloat ShakeTime = 0.0f;
 SpriteRenderer* render;
 GameObject* Player;
 MyParticleMgr* ParticleMgr;
+PostProcessor* Effects;
 
 
 // 球
@@ -36,6 +38,12 @@ void Game::Init()
 	ResourceMgr::LoadTexture("textures/block_solid.png", GL_FALSE, "block_solid");
 	ResourceMgr::LoadTexture("textures/paddle.png", GL_TRUE, "paddle");
 	ResourceMgr::LoadTexture("textures/particle.png", GL_TRUE, "particle");
+	ResourceMgr::LoadTexture("textures/powerup_speed.png", GL_TRUE, "powerup_speed");
+	ResourceMgr::LoadTexture("textures/powerup_sticky.png", GL_TRUE, "powerup_sticky");
+	ResourceMgr::LoadTexture("textures/powerup_increase.png", GL_TRUE, "powerup_increase");
+	ResourceMgr::LoadTexture("textures/powerup_confuse.png", GL_TRUE, "powerup_confuse");
+	ResourceMgr::LoadTexture("textures/powerup_chaos.png", GL_TRUE, "powerup_chaos");
+	ResourceMgr::LoadTexture("textures/powerup_passthrough.png", GL_TRUE, "powerup_passthrough");
 
 	char szPath[1024];
 	// 加载关卡
@@ -75,6 +83,11 @@ void Game::Init()
 	oShader.SetInt("image", 0);
 	oShader.SetMatrix4("projection", projection);
 	ParticleMgr = new MyParticleMgr(ResourceMgr::GetShader("particle"), ResourceMgr::GetTexture("particle"), 500);
+
+
+	oShader = ResourceMgr::LoadShader("Assert/Shader/post_processing.vs", "Assert/Shader/post_processing.fs", nullptr, "effects");
+	Effects = new PostProcessor(oShader, this->Width, this->Height);
+
 }
 
 void Game::ProcessInput(GLfloat dt)
@@ -119,11 +132,21 @@ void Game::Update(GLfloat dt)
 
 	if (Ball->Position.y >= this->Height)
 	{
+		std::cout << "Game Reset" << std::endl;
 		this->ResetLevel();
 		this->ResetPlayer();
 	}
 
 	ParticleMgr->Update(dt, *Ball, 2, glm::vec2(Ball->Radius / 2));
+
+	if (ShakeTime > 0.0f)
+	{
+		ShakeTime -= dt;
+		if (ShakeTime <= 0.0f)
+		{
+			Effects->Shake = false;
+		}
+	}
 }
 
 void Game::DoCollisions()
@@ -142,6 +165,9 @@ void Game::DoCollisions()
 			{
 				box.Destroyed = GL_TRUE;
 			}
+
+			ShakeTime = 0.05f;
+			Effects->Shake = true;
 
 			// 碰撞后的反弹处理
 			Direction dir = std::get<1>(collision);
@@ -204,6 +230,8 @@ void Game::Render()
 	if (this->State == GAME_ACTIVE)
 	{
 		// 绘制背景
+		Effects->BeginRender();
+
 		render->DrawSprite(ResourceMgr::GetTexture("background"),
 			glm::vec2(0, 0), glm::vec2(this->Width, this->Height), 0.0f
 		);
@@ -214,6 +242,9 @@ void Game::Render()
 		ParticleMgr->Draw();
 
 		Ball->Draw(*render);
+
+		Effects->EndRender();
+		Effects->Render(glfwGetTime());
 	}
 
 }

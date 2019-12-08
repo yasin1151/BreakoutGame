@@ -12,6 +12,7 @@
 #include "GameLevel.h"
 #include "BallObject.h"
 #include "Particle.h"
+#include "PostProcessing.h"
 
 enum GameState
 {

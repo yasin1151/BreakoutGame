@@ -15,11 +15,11 @@ Filter_Max(GL_LINEAR)
 
 void Texture2D::Generate(GLuint width, GLuint height, unsigned char* data)
 {
-	if (!data)
-	{
-		std::cout << "Texture2D::Generat Failed, data not exist" << this->ID << std::endl;
-		return;
-	}
+	// if (!data)
+	// {
+	// 	std::cout << "Texture2D::Generat Failed, data not exist" << this->ID << std::endl;
+	// 	return;
+	// }
 
 	this->Width = width;
 	this->Height = height;
