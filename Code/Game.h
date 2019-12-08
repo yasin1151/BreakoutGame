@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 #include <vector>
 #include <tuple>
+#include <irrklang/irrKlang.h>
 
 #include "ResourceMgr.h"
 #include "SpriteRenderer.h"

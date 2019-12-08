@@ -8,6 +8,7 @@ GameObject* Player;
 MyParticleMgr* ParticleMgr;
 PostProcessor* Effects;
 
+irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
 
 // Çò
 const glm::vec2 INITIAL_BALL_VELOCITY(100.0f, -350.0f);
@@ -26,6 +27,9 @@ Game::~Game()
 	SafeDelete(render);
 	SafeDelete(Player);
 	SafeDelete(Ball);
+	SafeDelete(ParticleMgr);
+	SafeDelete(Effects);
+	SoundEngine->drop();
 }
 
 void Game::Init()
@@ -88,6 +92,8 @@ void Game::Init()
 	oShader = ResourceMgr::LoadShader("Assert/Shader/post_processing.vs", "Assert/Shader/post_processing.fs", nullptr, "effects");
 	Effects = new PostProcessor(oShader, this->Width, this->Height);
 
+
+	SoundEngine->play2D("Assert/audio/breakout.mp3", GL_TRUE);
 }
 
 void Game::ProcessInput(GLfloat dt)
@@ -164,8 +170,14 @@ void Game::DoCollisions()
 			if (!box.IsSoild)
 			{
 				box.Destroyed = GL_TRUE;
-			}
+				SoundEngine->play2D("Assert/audio/bleep.mp3", GL_FALSE);
 
+			}
+			else
+			{
+				SoundEngine->play2D("Assert/audio/solid.wav", GL_FALSE);
+
+			}
 			ShakeTime = 0.05f;
 			Effects->Shake = true;
 
@@ -219,6 +231,7 @@ void Game::DoCollisions()
 		Ball->Velocity.x = INITIAL_BALL_VELOCITY.x * percentage * strength;
 		Ball->Velocity.y = -Ball->Velocity.y;
 		Ball->Velocity = glm::normalize(Ball->Velocity) * glm::length(oldVelocity);
+		SoundEngine->play2D("Assert/audio/bleep.wav", GL_FALSE);
 
 	}
 
