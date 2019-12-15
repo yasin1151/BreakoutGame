@@ -54,6 +54,9 @@
     <ClInclude Include="Code\PostProcessing.h">
       <Filter>源文件\Code</Filter>
     </ClInclude>
+    <ClInclude Include="Code\TextRenderer.h">
+      <Filter>源文件\Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
@@ -89,6 +92,9 @@
     <ClCompile Include="Code\PostProcessing.cpp">
       <Filter>源文件\Code</Filter>
     </ClCompile>
+    <ClCompile Include="Code\TextRenderer.cpp">
+      <Filter>源文件\Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assert\Shader\2DSprite.fs">
@@ -97,10 +103,22 @@
     <None Include="Assert\Shader\2DSprite.vs">
       <Filter>源文件\Shader</Filter>
     </None>
-    <None Include="Assert\Shader\Patricle.fs">
+    <None Include="Assert\Shader\post_processing.fs">
       <Filter>源文件\Shader</Filter>
     </None>
-    <None Include="Assert\Shader\Patricle.vs">
+    <None Include="Assert\Shader\post_processing.vs">
+      <Filter>源文件\Shader</Filter>
+    </None>
+    <None Include="Assert\Shader\Particle.fs">
+      <Filter>源文件\Shader</Filter>
+    </None>
+    <None Include="Assert\Shader\Particle.vs">
+      <Filter>源文件\Shader</Filter>
+    </None>
+    <None Include="Assert\Shader\Text.fs">
+      <Filter>源文件\Shader</Filter>
+    </None>
+    <None Include="Assert\Shader\Text.vs">
       <Filter>源文件\Shader</Filter>
     </None>
   </ItemGroup>

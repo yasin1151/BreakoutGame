@@ -7,6 +7,7 @@ SpriteRenderer* render;
 GameObject* Player;
 MyParticleMgr* ParticleMgr;
 PostProcessor* Effects;
+CTextRenderer* TextRenderer;
 
 irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
 
@@ -29,6 +30,7 @@ Game::~Game()
 	SafeDelete(Ball);
 	SafeDelete(ParticleMgr);
 	SafeDelete(Effects);
+	SafeDelete(TextRenderer);
 	SoundEngine->drop();
 }
 
@@ -92,6 +94,9 @@ void Game::Init()
 	oShader = ResourceMgr::LoadShader("Assert/Shader/post_processing.vs", "Assert/Shader/post_processing.fs", nullptr, "effects");
 	Effects = new PostProcessor(oShader, this->Width, this->Height);
 
+
+	TextRenderer = new CTextRenderer(this->Width, this->Height);
+	TextRenderer->Load("Assert/Font/arial.ttf", 20);
 
 	SoundEngine->play2D("Assert/audio/breakout.mp3", GL_TRUE);
 }
@@ -258,6 +263,8 @@ void Game::Render()
 
 		Effects->EndRender();
 		Effects->Render(glfwGetTime());
+
+		TextRenderer->RenderText("Hello Game!", 0, 0, 1.0f);
 	}
 
 }

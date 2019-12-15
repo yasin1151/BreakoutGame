@@ -14,6 +14,7 @@
 #include "BallObject.h"
 #include "Particle.h"
 #include "PostProcessing.h"
+#include "TextRenderer.h"
 
 enum GameState
 {

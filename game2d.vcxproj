@@ -28,6 +28,7 @@
     <ClInclude Include="Code\ResourceMgr.h" />
     <ClInclude Include="Code\Shader.h" />
     <ClInclude Include="Code\SpriteRenderer.h" />
+    <ClInclude Include="Code\TextRenderer.h" />
     <ClInclude Include="Code\texture.h" />
     <ClInclude Include="Code\Util.hpp" />
   </ItemGroup>
@@ -42,13 +43,18 @@
     <ClCompile Include="Code\ResourceMgr.cpp" />
     <ClCompile Include="Code\Shader.cpp" />
     <ClCompile Include="Code\SpriteRenderer.cpp" />
+    <ClCompile Include="Code\TextRenderer.cpp" />
     <ClCompile Include="Code\texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assert\Shader\2DSprite.fs" />
     <None Include="Assert\Shader\2DSprite.vs" />
-    <None Include="Assert\Shader\Patricle.fs" />
-    <None Include="Assert\Shader\Patricle.vs" />
+    <None Include="Assert\Shader\Particle.fs" />
+    <None Include="Assert\Shader\Particle.vs" />
+    <None Include="Assert\Shader\post_processing.fs" />
+    <None Include="Assert\Shader\post_processing.vs" />
+    <None Include="Assert\Shader\Text.fs" />
+    <None Include="Assert\Shader\Text.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -119,7 +125,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;STB_IMAGE.lib;GLAD.lib;SOIL.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;STB_IMAGE.lib;GLAD.lib;SOIL.lib;irrKlang.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
